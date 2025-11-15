@@ -1,6 +1,6 @@
 from pathlib import Path
 
-BASE_DIR = Path(_file_).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATA_PATHS = {
     "regions_geojson": BASE_DIR / "data" / "mock" / "mu.json",
