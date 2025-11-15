@@ -1,0 +1,13 @@
+region_id,region_name,exposure,vulnerability,adaptation
+MUAG,North Islands,85,40,30
+MUBL,Black River,80,60,55
+MUCC,Saint Brandon Islands,90,35,25
+MUFL,Flacq,70,55,50
+MUGP,Grand Port,82,58,48
+MUMO,Moka,55,45,60
+MUPA,Pamplemousses,65,62,52
+MUPL,Port Louis,78,70,65
+MUPW,Plaines Wilhems,60,68,70
+MURO,Rodriguez Island,88,50,40
+MURR,Riviere du Rempart,67,57,50
+MUSA,Savanne,75,53,45
