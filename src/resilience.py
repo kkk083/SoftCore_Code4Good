@@ -1,33 +1,37 @@
 
+
 import pandas as pd
 import numpy as np
-from utils.config import RESILIENCE_WEIGHTS, RESILIENCE_THRESHOLDS
+from utils.config import (
+    RESILIENCE_WEIGHTS,
+    RESILIENCE_THRESHOLDS,
+    CYCLONE_IMPACT_FACTOR
+)
 
 
-def calculate_resilience(exposure: float, vulnerability: float, adaptation: float) -> float:
-    
-    # Formule composite du risque
+def calculate_resilience(exposure, vulnerability, adaptation):
+    """Calcule l'indice de résilience pour UNE région."""
     composite_risk = (
         RESILIENCE_WEIGHTS['exposure'] * exposure +
         RESILIENCE_WEIGHTS['vulnerability'] * vulnerability -
         RESILIENCE_WEIGHTS['adaptation'] * adaptation
     )
     
-    # Indice de résilience = inverse du risque
     resilience_index = 100 - composite_risk
-    
-    # Clamper entre 0 et 100
     resilience_index = max(0, min(100, resilience_index))
     
     return round(resilience_index, 2)
 
 
-def calculate_resilience_batch(df: pd.DataFrame) -> pd.DataFrame:
-   
-    if not all(col in df.columns for col in ['exposure', 'vulnerability', 'adaptation']):
-        raise ValueError("DataFrame doit contenir les colonnes: exposure, vulnerability, adaptation")
+def calculate_resilience_batch(df):
+    """Calcule résilience pour TOUTES les régions."""
+    required = ['exposure', 'vulnerability', 'adaptation']
+    missing = [col for col in required if col not in df.columns]
     
-    # Calcul vectorisé pour performance
+    if missing:
+        raise ValueError(f"❌ DEV 2: Colonnes manquantes: {missing}")
+    
+    # Calcul vectorisé
     composite_risk = (
         RESILIENCE_WEIGHTS['exposure'] * df['exposure'] +
         RESILIENCE_WEIGHTS['vulnerability'] * df['vulnerability'] -
@@ -35,94 +39,93 @@ def calculate_resilience_batch(df: pd.DataFrame) -> pd.DataFrame:
     )
     
     df['resilience_index'] = 100 - composite_risk
-    
-    # Clamper entre 0 et 100
     df['resilience_index'] = df['resilience_index'].clip(0, 100).round(2)
+    
+    # Ajouter catégorie (4 niveaux)
+    df['category'] = df['resilience_index'].apply(get_resilience_category)
+    
+    print(f"✅ DEV 2: Résilience calculée pour {len(df)} régions")
     
     return df
 
 
-def get_resilience_category(score: float) -> str:
-   
-    for category, (min_val, max_val) in RESILIENCE_THRESHOLDS.items():
-        if min_val <= score < max_val:
-            return category
+def get_resilience_category(score):
+    """
+    Catégorise le score en 4 niveaux
     
-    # Si score = 100 exactement
-    if score == 100:
-        return 'high'
-    
-    return 'low'  # Fallback
+    Returns:
+        str: 'critical', 'low', 'medium', 'high'
+    """
+    if score < 30:
+        return 'critical'    # Rouge
+    elif score < 50:
+        return 'low'         # Orange
+    elif score < 70:
+        return 'medium'      # Jaune
+    else:
+        return 'high'        # Vert
 
 
-def normalize_values(df: pd.DataFrame, columns: list) -> pd.DataFrame:
-   
-    df_normalized = df.copy()
-    
-    for col in columns:
-        if col not in df.columns:
-            raise ValueError(f"Colonne '{col}' introuvable dans le DataFrame")
-        
-        min_val = df[col].min()
-        max_val = df[col].max()
-        
-        # Éviter division par zéro
-        if max_val - min_val == 0:
-            df_normalized[col] = 50  # Valeur neutre
-        else:
-            df_normalized[col] = ((df[col] - min_val) / (max_val - min_val)) * 100
-    
-    return df_normalized
-
-
-def simulate_cyclone_impact(df: pd.DataFrame, severity: int) -> pd.DataFrame:
-   
-    if not 0 <= severity <= 100:
-        raise ValueError("Severity doit être entre 0 et 100")
+def simulate_cyclone_impact(df, cyclone_severity):
+    """Simule l'impact d'un cyclone."""
+    if not 0 <= cyclone_severity <= 100:
+        raise ValueError("Severity doit être entre 0-100")
     
     df_simulated = df.copy()
     
-    # Augmenter l'exposition selon la sévérité
-    df_simulated['exposure'] = df_simulated['exposure'] + (severity * 0.5)
+    # Calculer impact
+    impact = cyclone_severity * CYCLONE_IMPACT_FACTOR
+    df_simulated['exposure'] = df_simulated['exposure'] + impact
     df_simulated['exposure'] = df_simulated['exposure'].clip(0, 100)
     
-    # Recalculer la résilience
+    # Recalculer résilience
     df_simulated = calculate_resilience_batch(df_simulated)
+    
+    print(f"✅ DEV 2: Cyclone severity={cyclone_severity} simulé")
     
     return df_simulated
 
 
-# Tests unitaires (à exécuter pour vérifier)
-if __name__ == "__main__":
-    print("🧪 Tests du module resilience.py\n")
+def get_cyclone_category(severity):
+    """Nom du cyclone selon intensité."""
+    if severity == 0:
+        return "Pas de cyclone"
+    elif severity < 20:
+        return "Dépression tropicale"
+    elif severity < 40:
+        return "Tempête tropicale"
+    elif severity < 60:
+        return "Cyclone catégorie 1-2"
+    elif severity < 80:
+        return "Cyclone catégorie 3-4"
+    else:
+        return "Cyclone catégorie 5 (EXTRÊME)"
+
+
+def calculate_combined_resilience(df, alerts_df):
+    """Calcule résilience combinée avec alertes citoyennes."""
+    merged = df.merge(alerts_df, on='region_id', how='left').fillna(0)
     
-    # Test 1: Calcul simple
-    print("Test 1: Calcul résilience simple")
-    result = calculate_resilience(70, 60, 40)
-    print(f"  Entrée: E=70, V=60, A=40")
-    print(f"  Résultat: {result}")
-    print(f"  Catégorie: {get_resilience_category(result)}")
-    assert 0 <= result <= 100, "Erreur: résultat hors bornes"
-    print("  ✅ Test 1 OK\n")
+    merged['combined_risk'] = merged.apply(
+        lambda row: calculate_combined_risk(
+            row['resilience_index'],
+            row.get('citizen_danger_ratio', 0)
+        ),
+        axis=1
+    )
     
-    # Test 2: Calcul batch
-    print("Test 2: Calcul batch DataFrame")
-    test_data = pd.DataFrame({
-        'region_id': ['R1', 'R2', 'R3'],
-        'region_name': ['Port Louis', 'Curepipe', 'Mahebourg'],
-        'exposure': [80, 50, 60],
-        'vulnerability': [70, 40, 55],
-        'adaptation': [30, 60, 45]
-    })
-    result_df = calculate_resilience_batch(test_data)
-    print(result_df[['region_name', 'exposure', 'vulnerability', 'adaptation', 'resilience_index']])
-    assert 'resilience_index' in result_df.columns, "Erreur: colonne resilience_index manquante"
-    print("  ✅ Test 2 OK\n")
+    merged['combined_category'] = merged['combined_risk'].apply(
+        lambda x: 'critical' if x >= 60 else 
+                  'high' if x >= 40 else
+                  'medium' if x >= 20 else 'low'
+    )
     
-    # Test 3: Simulation cyclone
-    print("Test 3: Simulation cyclone severity=50")
-    simulated = simulate_cyclone_impact(test_data, severity=50)
-    print(simulated[['region_name', 'exposure', 'resilience_index']])
-    print("  ✅ Test 3 OK\n")
-    
-    print("🎉 Tous les tests sont OK! Module prêt pour intégration.")
+    return merged
+
+
+def calculate_combined_risk(resilience_index, citizen_danger_ratio):
+    """Calcule risque combiné."""
+    resilience_risk = 100 - resilience_index
+    citizen_risk = citizen_danger_ratio * 100
+    combined = (0.6 * resilience_risk) + (0.4 * citizen_risk)
+    return round(combined, 2)

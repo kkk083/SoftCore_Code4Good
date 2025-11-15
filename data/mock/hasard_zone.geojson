@@ -1,0 +1,124 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "flood_zone",
+        "severity": "high",
+        "name": "Port Louis Waterfront"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.5000, -20.1609]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "cyclone_shelter",
+        "capacity": 500,
+        "name": "Curepipe Community Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.5250, -20.3162]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "cyclone_shelter",
+        "capacity": 800,
+        "name": "Port Louis Gymnasium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.5050, -20.1550]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "hospital",
+        "capacity": 1200,
+        "name": "Victoria Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.4950, -20.1650]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "flood_zone",
+        "severity": "medium",
+        "name": "Flacq Coast"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.7200, -20.2000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "cyclone_shelter",
+        "capacity": 400,
+        "name": "Mahebourg Social Welfare Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.7100, -20.4080]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "fire_station",
+        "name": "Quatre Bornes Fire Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.4800, -20.2650]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "hospital",
+        "capacity": 800,
+        "name": "Flacq Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.7150, -20.2100]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "flood_zone",
+        "severity": "high",
+        "name": "Grand Port Coastal Area"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.6500, -20.3700]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "cyclone_shelter",
+        "capacity": 600,
+        "name": "Rose Hill Town Hall"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.4730, -20.2370]
+      }
+    }
+  ]
+}

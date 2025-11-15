@@ -1,0 +1,271 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "PL",
+        "region_name": "Port Louis",
+        "population": 149194,
+        "area_km2": 42.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.495, -20.145],
+          [57.520, -20.145],
+          [57.520, -20.175],
+          [57.495, -20.175],
+          [57.495, -20.145]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "CP",
+        "region_name": "Curepipe",
+        "population": 84487,
+        "area_km2": 23.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.510, -20.300],
+          [57.540, -20.300],
+          [57.540, -20.330],
+          [57.510, -20.330],
+          [57.510, -20.300]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "VC",
+        "region_name": "Vacoas-Phoenix",
+        "population": 110000,
+        "area_km2": 21.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.475, -20.285],
+          [57.505, -20.285],
+          [57.505, -20.315],
+          [57.475, -20.315],
+          [57.475, -20.285]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "QBN",
+        "region_name": "Quatre Bornes",
+        "population": 77495,
+        "area_km2": 9.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.470, -20.255],
+          [57.490, -20.255],
+          [57.490, -20.275],
+          [57.470, -20.275],
+          [57.470, -20.255]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "BB",
+        "region_name": "Beau Bassin-Rose Hill",
+        "population": 110000,
+        "area_km2": 15.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.460, -20.225],
+          [57.485, -20.225],
+          [57.485, -20.250],
+          [57.460, -20.250],
+          [57.460, -20.225]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "FB",
+        "region_name": "Flacq",
+        "population": 138000,
+        "area_km2": 297.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.685, -20.180],
+          [57.750, -20.180],
+          [57.750, -20.250],
+          [57.685, -20.250],
+          [57.685, -20.180]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "MB",
+        "region_name": "Mahebourg",
+        "population": 16000,
+        "area_km2": 39.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.695, -20.395],
+          [57.730, -20.395],
+          [57.730, -20.425],
+          [57.695, -20.425],
+          [57.695, -20.395]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "RP",
+        "region_name": "Rivière du Rempart",
+        "population": 108000,
+        "area_km2": 147.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.620, -19.980],
+          [57.700, -19.980],
+          [57.700, -20.050],
+          [57.620, -20.050],
+          [57.620, -19.980]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "PN",
+        "region_name": "Pamplemousses",
+        "population": 139000,
+        "area_km2": 178.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.540, -20.050],
+          [57.610, -20.050],
+          [57.610, -20.120],
+          [57.540, -20.120],
+          [57.540, -20.050]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "SA",
+        "region_name": "Savanne",
+        "population": 69000,
+        "area_km2": 244.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.450, -20.430],
+          [57.540, -20.430],
+          [57.540, -20.500],
+          [57.450, -20.500],
+          [57.450, -20.430]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "RN",
+        "region_name": "Rivière Noire",
+        "population": 78000,
+        "area_km2": 259.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.320, -20.270],
+          [57.420, -20.270],
+          [57.420, -20.380],
+          [57.320, -20.380],
+          [57.320, -20.270]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "PM",
+        "region_name": "Plaines Wilhems",
+        "population": 365000,
+        "area_km2": 203.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.450, -20.260],
+          [57.540, -20.260],
+          [57.540, -20.350],
+          [57.450, -20.350],
+          [57.450, -20.260]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "MK",
+        "region_name": "Moka",
+        "population": 83000,
+        "area_km2": 230.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.480, -20.180],
+          [57.570, -20.180],
+          [57.570, -20.250],
+          [57.480, -20.250],
+          [57.480, -20.180]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region_id": "GP",
+        "region_name": "Grand Port",
+        "population": 115000,
+        "area_km2": 260.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [57.600, -20.320],
+          [57.720, -20.320],
+          [57.720, -20.410],
+          [57.600, -20.410],
+          [57.600, -20.320]
+        ]]
+      }
+    }
+  ]
+}

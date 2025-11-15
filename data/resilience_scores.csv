@@ -1,0 +1,13 @@
+region_id,region_name,exposure,vulnerability,adaptation,population
+MUAG,Black River,82,72,38,85000
+MUBL,Flacq,65,60,58,120000
+MUCC,Grand Port,86,76,32,95000
+MUFL,Moka,45,50,75,110000
+MUGP,Pamplemousses,70,65,52,140000
+MUMO,Plaine Wihlem,30,40,85,380000
+MUPA,Port Louis,20,35,90,150000
+MUPL,Riviere du Rempart,55,52,65,115000
+MUPW,Savanne,78,70,45,115000
+MURO,Rodriguez Island,98,90,12,42000
+MURR,Riviere du Rempart 2,94,82,20,100000
+MUSA,Savanne 2,96,86,16,72000
