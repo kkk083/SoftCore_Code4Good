@@ -132,6 +132,6 @@ def generate_citizen_alert(df, user_region):
             'message': f"✅ SÉCURISÉ: Votre région ({user_region}) - {resilience:.1f}/100",
             'actions': [
                 "Restez vigilant",
-                "Aidez vos voisins si nécessaire"
+                "Restez informé"
             ]
         }
