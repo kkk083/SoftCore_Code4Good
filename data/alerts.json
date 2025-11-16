@@ -1,452 +1,116 @@
 [
   {
-    "id": "MUAG_1763259576.811168",
+    "id": "MUAG_1763260117.085993",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:36.811168"
+    "timestamp": "2025-11-16T06:28:37.085993"
   },
   {
-    "id": "MUAG_1763259577.139764",
+    "id": "MUAG_1763260117.361236",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:37.139764"
+    "timestamp": "2025-11-16T06:28:37.361236"
   },
   {
-    "id": "MUAG_1763259577.394035",
+    "id": "MUAG_1763260117.696737",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:37.394035"
+    "timestamp": "2025-11-16T06:28:37.696737"
   },
   {
-    "id": "MUAG_1763259577.678781",
+    "id": "MUAG_1763260118.031455",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:37.678781"
+    "timestamp": "2025-11-16T06:28:38.031455"
   },
   {
-    "id": "MUAG_1763259577.962099",
+    "id": "MUAG_1763260118.456221",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:37.962099"
+    "timestamp": "2025-11-16T06:28:38.456221"
   },
   {
-    "id": "MUAG_1763259578.321794",
+    "id": "MUAG_1763260118.858473",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:38.321794"
+    "timestamp": "2025-11-16T06:28:38.858473"
   },
   {
-    "id": "MUAG_1763259578.561604",
+    "id": "MUAG_1763260119.312037",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:38.561604"
+    "timestamp": "2025-11-16T06:28:39.312037"
   },
   {
-    "id": "MUAG_1763259578.793421",
+    "id": "MUAG_1763260119.836229",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:38.793421"
+    "timestamp": "2025-11-16T06:28:39.836229"
   },
   {
-    "id": "MUAG_1763259579.082456",
+    "id": "MUAG_1763260120.106618",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:39.082456"
+    "timestamp": "2025-11-16T06:28:40.106618"
   },
   {
-    "id": "MUAG_1763259579.324265",
+    "id": "MUAG_1763260120.43073",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:39.324265"
+    "timestamp": "2025-11-16T06:28:40.430730"
   },
   {
-    "id": "MUAG_1763259579.566233",
+    "id": "MUAG_1763260120.649837",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:39.566233"
+    "timestamp": "2025-11-16T06:28:40.649837"
   },
   {
-    "id": "MUAG_1763259579.829981",
+    "id": "MUAG_1763260120.909105",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:39.829981"
+    "timestamp": "2025-11-16T06:28:40.909105"
   },
   {
-    "id": "MUAG_1763259580.053093",
+    "id": "MUAG_1763260121.195642",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:40.053093"
+    "timestamp": "2025-11-16T06:28:41.195642"
   },
   {
-    "id": "MUAG_1763259580.282685",
+    "id": "MUAG_1763260121.561168",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:40.282685"
+    "timestamp": "2025-11-16T06:28:41.561168"
   },
   {
-    "id": "MUAG_1763259580.515728",
+    "id": "MUAG_1763260121.831039",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:40.515728"
+    "timestamp": "2025-11-16T06:28:41.831039"
   },
   {
-    "id": "MUAG_1763259580.799682",
+    "id": "MUAG_1763260122.188593",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:40.799682"
+    "timestamp": "2025-11-16T06:28:42.188593"
   },
   {
-    "id": "MUAG_1763259581.025378",
+    "id": "MUAG_1763260122.493561",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:41.025378"
+    "timestamp": "2025-11-16T06:28:42.493561"
   },
   {
-    "id": "MUAG_1763259581.238896",
+    "id": "MUAG_1763260122.834309",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:41.238896"
+    "timestamp": "2025-11-16T06:28:42.834309"
   },
   {
-    "id": "MUAG_1763259581.505134",
+    "id": "MUAG_1763260123.092517",
     "region_id": "MUAG",
     "type": "danger",
-    "timestamp": "2025-11-16T06:19:41.505134"
-  },
-  {
-    "id": "MUAG_1763259581.741574",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:41.741574"
-  },
-  {
-    "id": "MUAG_1763259581.99178",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:41.991780"
-  },
-  {
-    "id": "MUAG_1763259582.33478",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:42.334780"
-  },
-  {
-    "id": "MUAG_1763259582.53991",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:42.539910"
-  },
-  {
-    "id": "MUAG_1763259582.781615",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:42.781615"
-  },
-  {
-    "id": "MUAG_1763259583.079143",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:43.079143"
-  },
-  {
-    "id": "MUAG_1763259583.274136",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:43.274136"
-  },
-  {
-    "id": "MUAG_1763259583.500048",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:43.500048"
-  },
-  {
-    "id": "MUAG_1763259583.733046",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:43.733046"
-  },
-  {
-    "id": "MUAG_1763259583.976105",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:43.976105"
-  },
-  {
-    "id": "MUAG_1763259584.224796",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:44.224796"
-  },
-  {
-    "id": "MUAG_1763259584.42622",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:44.426220"
-  },
-  {
-    "id": "MUAG_1763259584.637926",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:44.637926"
-  },
-  {
-    "id": "MUAG_1763259584.807664",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:44.807664"
-  },
-  {
-    "id": "MUAG_1763259585.072732",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:45.072732"
-  },
-  {
-    "id": "MUAG_1763259585.307359",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:45.307359"
-  },
-  {
-    "id": "MUAG_1763259585.538849",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:45.538849"
-  },
-  {
-    "id": "MUAG_1763259585.754705",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:45.754705"
-  },
-  {
-    "id": "MUAG_1763259585.941214",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:45.941214"
-  },
-  {
-    "id": "MUAG_1763259586.210963",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:46.210963"
-  },
-  {
-    "id": "MUAG_1763259586.438491",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:46.438491"
-  },
-  {
-    "id": "MUAG_1763259586.675672",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:46.675672"
-  },
-  {
-    "id": "MUAG_1763259586.895658",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:46.895658"
-  },
-  {
-    "id": "MUAG_1763259587.152779",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:47.152779"
-  },
-  {
-    "id": "MUAG_1763259587.371155",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:47.371155"
-  },
-  {
-    "id": "MUAG_1763259587.571551",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:47.571551"
-  },
-  {
-    "id": "MUAG_1763259587.785278",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:47.785278"
-  },
-  {
-    "id": "MUAG_1763259587.993626",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:47.994629"
-  },
-  {
-    "id": "MUAG_1763259588.196665",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:48.196665"
-  },
-  {
-    "id": "MUAG_1763259588.426058",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:48.426058"
-  },
-  {
-    "id": "MUAG_1763259588.675028",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:48.675028"
-  },
-  {
-    "id": "MUAG_1763259588.888947",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:48.888947"
-  },
-  {
-    "id": "MUAG_1763259589.110931",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:49.110931"
-  },
-  {
-    "id": "MUAG_1763259589.463815",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:49.463815"
-  },
-  {
-    "id": "MUAG_1763259589.725384",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:49.725384"
-  },
-  {
-    "id": "MUAG_1763259589.981619",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:49.981646"
-  },
-  {
-    "id": "MUAG_1763259590.19784",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:50.197840"
-  },
-  {
-    "id": "MUAG_1763259590.425984",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:50.425984"
-  },
-  {
-    "id": "MUAG_1763259590.703456",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:50.703456"
-  },
-  {
-    "id": "MUAG_1763259590.922031",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:50.922031"
-  },
-  {
-    "id": "MUAG_1763259591.152189",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:51.152189"
-  },
-  {
-    "id": "MUAG_1763259591.343814",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:51.343814"
-  },
-  {
-    "id": "MUAG_1763259591.586567",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:51.586567"
-  },
-  {
-    "id": "MUAG_1763259591.834529",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:51.834529"
-  },
-  {
-    "id": "MUAG_1763259592.090561",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:52.090561"
-  },
-  {
-    "id": "MUAG_1763259592.363309",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:52.363309"
-  },
-  {
-    "id": "MUAG_1763259592.596332",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:52.596332"
-  },
-  {
-    "id": "MUAG_1763259592.828186",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:52.828186"
-  },
-  {
-    "id": "MUAG_1763259593.087663",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:53.087663"
-  },
-  {
-    "id": "MUAG_1763259593.319993",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:53.319993"
-  },
-  {
-    "id": "MUAG_1763259593.59136",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:53.591360"
-  },
-  {
-    "id": "MUAG_1763259593.86242",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:53.862420"
-  },
-  {
-    "id": "MUAG_1763259594.105758",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:54.105758"
-  },
-  {
-    "id": "MUAG_1763259594.330557",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:54.330557"
-  },
-  {
-    "id": "MUAG_1763259594.551999",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:54.551999"
-  },
-  {
-    "id": "MUAG_1763259594.824284",
-    "region_id": "MUAG",
-    "type": "danger",
-    "timestamp": "2025-11-16T06:19:54.824284"
+    "timestamp": "2025-11-16T06:28:43.092517"
   }
 ]

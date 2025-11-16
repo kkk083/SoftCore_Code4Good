@@ -1,8 +1,3 @@
-"""
-Système d'alertes citoyennes en temps réel
-Gère les signalements "En danger" / "En sécurité"
-"""
-
 import json
 from datetime import datetime
 from pathlib import Path
@@ -34,12 +29,6 @@ def save_alert(region_id, alert_type):
     """
     Enregistre une alerte citoyenne
     
-    Args:
-        region_id (str): ID région
-        alert_type (str): "danger" ou "safe"
-    
-    Returns:
-        bool: Succès de l'opération
     """
     alerts = load_alerts()
     
@@ -64,13 +53,6 @@ def get_region_alert_stats(region_id):
     """
     Calcule statistiques alertes pour une région
     
-    Returns:
-        dict: {
-            'danger_count': int,
-            'safe_count': int,
-            'total_count': int,
-            'danger_ratio': float (0-1)
-        }
     """
     alerts = load_alerts()
     region_alerts = [a for a in alerts if a['region_id'] == region_id]
@@ -90,12 +72,7 @@ def get_region_alert_stats(region_id):
 def get_all_alerts_summary(df):
     """
     Résumé global des alertes pour toutes les régions
-    
-    Args:
-        df (DataFrame): Données régions avec region_id
-    
-    Returns:
-        DataFrame: df + colonnes alertes
+
     """
     alerts_data = []
     

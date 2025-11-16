@@ -1,12 +1,3 @@
-"""
-IslandGuard - Application de résilience climatique pour l'île Maurice
-🇲🇺 Code4Good Hackathon 2025
-
-SYSTÈME À 2 ACTEURS:
-- 👤 CITOYEN: Voir risques + signaler danger/sécurité + Conseils IA
-- 🚨 SECOURS: Dashboard complet + Rapport IA exportable en PDF
-"""
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -16,8 +7,6 @@ from ai.security_advisor_ai import SecurityAdvisor
 from streamlit_geolocation import streamlit_geolocation
 from datetime import datetime
 from io import BytesIO
-
-# Imports des modules IslandGuard
 from src.data_loader import merge_data, load_hazard_zones
 from src.resilience import calculate_resilience_batch, simulate_cyclone_impact, get_cyclone_category
 from src.map_generator import create_base_map, add_resilience_layer, add_hazard_layer, add_legend
@@ -30,20 +19,17 @@ from src.citizen_alerts import (
 )
 
 
-# ============================================================
+
 # CONFIGURATION
-# ============================================================
 st.set_page_config(
     page_title="IslandGuard 🇲🇺",
-    page_icon="🌴",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 
-# ============================================================
+
 # CSS
-# ============================================================
 st.markdown("""
 <style>
     .main-header {
@@ -87,19 +73,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ============================================================
+
 # SESSION STATE
-# ============================================================
 if 'user_role' not in st.session_state:
     st.session_state.user_role = 'Citoyen'
 if 'alert_sent' not in st.session_state:
     st.session_state.alert_sent = False
 
 
-# ============================================================
-# FONCTIONS UTILITAIRES
-# ============================================================
 
+# FONCTIONS UTILITAIRES
 @st.cache_data
 def load_base_data():
     """Charge les données de base"""
@@ -108,7 +91,7 @@ def load_base_data():
         df = calculate_resilience_batch(df)
         return df
     except Exception as e:
-        st.error(f"❌ Erreur chargement données: {e}")
+        st.error(f"Erreur chargement données: {e}")
         return None
 
 
@@ -195,7 +178,7 @@ def generate_pdf_report(advice, region_name, cyclone_severity):
         return pdf_output
         
     except Exception as e:
-        st.error(f"❌ Erreur génération PDF: {e}")
+        st.error(f" Erreur génération PDF: {e}")
         return None
 
 
@@ -209,27 +192,26 @@ def main():
     # Header
     st.markdown("""
     <div class="main-header">
-        <h1>🌴 IslandGuard 🇲🇺</h1>
+        <h1> IslandGuard 🇲🇺</h1>
         <p>Système de surveillance de la résilience climatique de l'île Maurice</p>
     </div>
     """, unsafe_allow_html=True)
     
     # Chargement données
-    with st.spinner("🔄 Chargement des données..."):
+    with st.spinner(" Chargement des données..."):
         base_df = load_base_data()
     
     if base_df is None or len(base_df) == 0:
-        st.error("❌ Impossible de charger les données.")
+        st.error(" Impossible de charger les données.")
         return
     
-    # ============================================================
+
     # SIDEBAR
-    # ============================================================
     with st.sidebar:
         st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/320px-Flag_of_Mauritius.svg.png", 
                  width=200)
         
-        st.header("👤 Sélection Rôle")
+        st.header(" Sélection Rôle")
         
         # Dropdown rôle
         user_role = st.selectbox(
@@ -241,14 +223,14 @@ def main():
         
         # Badge rôle
         if user_role == "Citoyen":
-            st.markdown('<span class="role-badge-citizen">👤 MODE CITOYEN</span>', unsafe_allow_html=True)
+            st.markdown('<span class="role-badge-citizen"> MODE CITOYEN</span>', unsafe_allow_html=True)
         else:
-            st.markdown('<span class="role-badge-rescue">🚨 MODE SECOURS</span>', unsafe_allow_html=True)
+            st.markdown('<span class="role-badge-rescue"> MODE SECOURS</span>', unsafe_allow_html=True)
         
         st.divider()
         
         # SIMULATEUR CYCLONE
-        st.subheader("🌀 Simulateur Cyclone")
+        st.subheader(" Simulateur Cyclone")
         cyclone_severity = st.slider(
             "Intensité du cyclone",
             min_value=0,
@@ -260,11 +242,11 @@ def main():
         cyclone_cat = get_cyclone_category(cyclone_severity)
         
         if cyclone_severity == 0:
-            st.info(f"✅ {cyclone_cat}")
+            st.info(f" {cyclone_cat}")
         elif cyclone_severity < 60:
-            st.warning(f"⚠️ {cyclone_cat}")
+            st.warning(f" {cyclone_cat}")
         else:
-            st.error(f"🚨 {cyclone_cat}")
+            st.error(f" {cyclone_cat}")
             play_alert_sound()
         
         # Appliquer simulation
@@ -280,35 +262,33 @@ def main():
         
         # SÉLECTION RÉGION (pour citoyen)
         if user_role == "Citoyen":
-            st.subheader("📍 Ma Région")
+            st.subheader(" Ma Région")
             regions_list = sorted(df['region_name'].unique())
             selected_region = st.selectbox("Sélectionnez votre région", regions_list)
         
         st.divider()
         
         # STATS GLOBALES
-        st.subheader("📊 Statistiques")
+        st.subheader(" Statistiques")
         stats = generate_summary_stats(df)
         
         col1, col2 = st.columns(2)
         with col1:
-            st.metric("🏝️ Régions", stats['total_regions'])
-            st.metric("✅ Sûres", stats['safe_regions'])
+            st.metric(" Régions", stats['total_regions'])
+            st.metric(" Sûres", stats['safe_regions'])
         with col2:
-            st.metric("🚨 À risque", stats['at_risk_regions'])
-            st.metric("📊 Moy.", f"{stats['avg_resilience']:.1f}")
+            st.metric(" À risque", stats['at_risk_regions'])
+            st.metric(" Moy.", f"{stats['avg_resilience']:.1f}")
     
-    # ============================================================
+  
     # ROUTAGE INTERFACES
-    # ============================================================
     if user_role == "Citoyen":
         render_citizen_interface(df, selected_region, cyclone_severity)
     else:
         render_rescue_interface(df, cyclone_severity, base_df)
     
-    # ============================================================
+ 
     # FOOTER
-    # ============================================================
     st.divider()
     col1, col2, col3 = st.columns([1, 2, 1])
     
@@ -326,14 +306,12 @@ def main():
         """, unsafe_allow_html=True)
 
 
-# ============================================================
-# INTERFACE CITOYEN
-# ============================================================
 
+# INTERFACE CITOYEN
 def render_citizen_interface(df, selected_region, cyclone_severity):
     """Interface pour les citoyens"""
     
-    st.header("👤 Interface Citoyen")
+    st.header(" Interface Citoyen")
     
     # INFO RÉGION
     region_data = df[df['region_name'] == selected_region].iloc[0]
@@ -350,39 +328,39 @@ def render_citizen_interface(df, selected_region, cyclone_severity):
     col1, col2, col3 = st.columns([2, 1, 1])
     
     with col1:
-        st.subheader(f"📍 {selected_region}")
+        st.subheader(f" {selected_region}")
         
         if category == 'critical':
-            st.error(f"🚨 Résilience: {resilience:.1f}/100 - DANGER CRITIQUE")
+            st.error(f" Résilience: {resilience:.1f}/100 - DANGER CRITIQUE")
         elif category == 'low':
-            st.warning(f"🟠 Résilience: {resilience:.1f}/100 - ATTENTION")
+            st.warning(f" Résilience: {resilience:.1f}/100 - ATTENTION")
         elif category == 'medium':
-            st.warning(f"⚠️ Résilience: {resilience:.1f}/100 - VIGILANCE")
+            st.warning(f" Résilience: {resilience:.1f}/100 - VIGILANCE")
         else:
-            st.success(f"✅ Résilience: {resilience:.1f}/100 - ZONE SÛRE")
+            st.success(f" Résilience: {resilience:.1f}/100 - ZONE SÛRE")
         
         st.write(f"**Exposition:** {region_data['exposure']:.0f}/100")
         st.write(f"**Vulnérabilité:** {region_data['vulnerability']:.0f}/100")
         st.write(f"**Adaptation:** {region_data['adaptation']:.0f}/100")
     
     with col2:
-        st.metric("🚨 Alertes Danger", alert_stats['danger_count'])
-        st.metric("✅ Alertes Sécurité", alert_stats['safe_count'])
+        st.metric(" Alertes Danger", alert_stats['danger_count'])
+        st.metric(" Alertes Sécurité", alert_stats['safe_count'])
     
     with col3:
-        st.metric("👥 Total Signalements", alert_stats['total_count'])
+        st.metric(" Total Signalements", alert_stats['total_count'])
     
     st.divider()
     
     # BOUTONS D'ALERTE
-    st.subheader("📢 Signaler votre situation")
+    st.subheader(" Signaler votre situation")
     
     col1, col2, col3 = st.columns([1, 1, 2])
     
     with col1:
         if st.button("🚨 JE SUIS EN DANGER", use_container_width=True, type="primary"):
             if save_alert(region_data['region_id'], 'danger'):
-                st.success("✅ Alerte envoyée aux secours!")
+                st.success("Alerte envoyée aux secours!")
                 play_alert_sound()
                 st.balloons()
                 st.rerun()
@@ -390,15 +368,15 @@ def render_citizen_interface(df, selected_region, cyclone_severity):
     with col2:
         if st.button("✅ JE SUIS EN SÉCURITÉ", use_container_width=True):
             if save_alert(region_data['region_id'], 'safe'):
-                st.success("✅ Merci pour votre signalement!")
+                st.success(" Merci pour votre signalement!")
                 st.rerun()
     
-    st.info("💡 Vos signalements aident les secours à prioriser les interventions")
+    st.info(" Vos signalements aident les secours à prioriser les interventions")
     
     st.divider()
     
     # CARTE
-    st.subheader("🗺️ Carte de Résilience")
+    st.subheader(" Carte de Résilience")
     
     map_obj = create_base_map()
     map_obj = add_resilience_layer(map_obj, df)
@@ -409,17 +387,17 @@ def render_citizen_interface(df, selected_region, cyclone_severity):
     st.divider()
     
     # CONSEILS SÉCURITÉ IA
-    st.title("🛡️ Conseils de Sécurité IA")
+    st.title(" Conseils de Sécurité IA")
 
     try:
         advisor = SecurityAdvisor()
 
-        st.write("📍 Autorisez la géolocalisation pour obtenir des conseils personnalisés.")
+        st.write(" Autorisez la géolocalisation pour obtenir des conseils personnalisés.")
 
         loc = streamlit_geolocation()
 
         disaster_type = st.selectbox(
-            "🌪️ Type de catastrophe",
+            " Type de catastrophe",
             ["cyclone", "inondation", "tsunami", "glissement de terrain", "tremblement de terre"]
         )
 
@@ -432,34 +410,34 @@ def render_citizen_interface(df, selected_region, cyclone_severity):
             nearest_region = temp_advisor._find_nearest_region(latitude, longitude)
             
             if nearest_region:
-                st.success(f"📍 Vous êtes à: **{nearest_region['region_name']}**")
+                st.success(f" Vous êtes à: **{nearest_region['region_name']}**")
                 st.caption(f"Coordonnées: {latitude:.4f}, {longitude:.4f}")
             else:
-                st.success(f"📍 Position détectée: {latitude:.4f}, {longitude:.4f}")
+                st.success(f" Position détectée: {latitude:.4f}, {longitude:.4f}")
             
-            if st.button("🚨 Obtenir Conseils de Sécurité", type="primary"):
+            if st.button(" Obtenir Conseils de Sécurité", type="primary"):
                 with st.spinner("📡 Analyse en cours..."):
                     try:
                         advice = advisor.get_advice_for_location(
                             latitude, longitude, disaster_type, cyclone_severity=cyclone_severity
                         )
                         
-                        st.markdown(f"## 📍 {advice['location']}")
+                        st.markdown(f"##  {advice['location']}")
                         st.markdown(f"### {advice['risk_level']}")
                         
                         if cyclone_severity > 0:
-                            st.error(f"🌀 **CYCLONE ACTIF** - Intensité: {cyclone_severity}/100")
+                            st.error(f" **CYCLONE ACTIF** - Intensité: {cyclone_severity}/100")
                         
-                        st.markdown("### ⚡ À Faire Maintenant")
+                        st.markdown("###  À Faire Maintenant")
                         st.error(advice['immediate_action'])
                         
-                        st.markdown("### 🛡️ Comment vous Protéger")
+                        st.markdown("###  Comment vous Protéger")
                         for tip in advice['protection_tips']:
                             st.write(f"• {tip}")
                         
-                        st.markdown("### 🏠 Zones Sûres")
+                        st.markdown("###  Zones Sûres")
                         for zone in advice['safe_zones']:
-                            with st.expander(f"✅ {zone['name']} ({zone['distance_km']:.1f} km)"):
+                            with st.expander(f" {zone['name']} ({zone['distance_km']:.1f} km)"):
                                 col1, col2, col3 = st.columns(3)
                                 with col1:
                                     st.metric("Distance", f"{zone['distance_km']:.1f} km")
@@ -478,41 +456,39 @@ def render_citizen_interface(df, selected_region, cyclone_severity):
                             st.metric("Gestion Crise", "116")
                     
                     except Exception as e:
-                        st.error(f"❌ Erreur: {e}")
+                        st.error(f" Erreur: {e}")
         else:
-            st.warning("📍 Veuillez autoriser la géolocalisation.")
+            st.warning(" Veuillez autoriser la géolocalisation.")
     
     except Exception as e:
-        st.error(f"❌ Erreur SecurityAdvisor: {e}")
+        st.error(f" Erreur SecurityAdvisor: {e}")
 
 
-# ============================================================
+
 # INTERFACE SECOURS
-# ============================================================
-
 def render_rescue_interface(df, cyclone_severity, base_df):
     """Interface pour les secours"""
     
-    st.header("🚨 Interface Secours / Gouvernement")
+    st.header(" Interface Secours / Gouvernement")
     
     # COMPTEURS LIVE
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         total_alerts = int(df['citizen_danger'].sum() + df['citizen_safe'].sum())
-        st.metric("🚨 Alertes Total", total_alerts)
+        st.metric(" Alertes Total", total_alerts)
 
     with col2:
         danger_count = int(df['citizen_danger'].sum())
-        st.metric("🔴 En Danger", danger_count)
+        st.metric(" En Danger", danger_count)
 
     with col3:
         safe_count = int(df['citizen_safe'].sum())
-        st.metric("🟢 En Sécurité", safe_count)
+        st.metric(" En Sécurité", safe_count)
 
     with col4:
         critical_regions = len(df[df['category'].isin(['low', 'critical'])])
-        st.metric("⚠️ Régions Critiques", critical_regions)
+        st.metric(" Régions Critiques", critical_regions)
         if critical_regions > 0:
             play_alert_sound()
 
@@ -530,7 +506,7 @@ def render_rescue_interface(df, cyclone_severity, base_df):
     
     # TAB 1: CARTE
     with tabs[0]:
-        st.subheader("🗺️ Carte Opérationnelle")
+        st.subheader(" Carte Opérationnelle")
         
         map_obj = create_base_map()
         map_obj = add_resilience_layer(map_obj, df)
@@ -547,14 +523,14 @@ def render_rescue_interface(df, cyclone_severity, base_df):
     
     # TAB 2: ALERTES
     with tabs[1]:
-        st.subheader("📊 Alertes Citoyennes")
+        st.subheader(" Alertes Citoyennes")
         
         critical_regions = df[
             (df['citizen_danger_ratio'] > 0.5) | (df['category'].isin(['low', 'critical']))
         ].sort_values('citizen_danger_ratio', ascending=False)
         
         if len(critical_regions) > 0:
-            st.error(f"🚨 {len(critical_regions)} région(s) critiques")
+            st.error(f" {len(critical_regions)} région(s) critiques")
             
             for _, region in critical_regions.iterrows():
                 col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
@@ -573,31 +549,31 @@ def render_rescue_interface(df, cyclone_severity, base_df):
                     else:
                         st.info(f"{ratio*100:.0f}%")
         else:
-            st.success("✅ Aucune alerte critique")
+            st.success(" Aucune alerte critique")
         
         st.divider()
         
-        if st.button("🧹 Nettoyer alertes > 24h"):
+        if st.button(" Nettoyer alertes > 24h"):
             deleted = clear_old_alerts(24)
-            st.success(f"✅ {deleted} alertes supprimées")
+            st.success(f" {deleted} alertes supprimées")
             st.rerun()
     
     # TAB 3: ÉVACUATIONS
     with tabs[2]:
-        st.subheader("🚁 Évacuations")
+        st.subheader(" Évacuations")
         
         evacuation_list = get_evacuation_list(df)
         
         if len(evacuation_list) > 0:
-            st.error(f"⚠️ {len(evacuation_list)} région(s) à évacuer")
+            st.error(f" {len(evacuation_list)} région(s) à évacuer")
             for _, region in evacuation_list.iterrows():
                 st.warning(f"**{region['region_name']}** - {region['resilience_index']:.1f}/100")
         else:
-            st.success("✅ Aucune évacuation nécessaire")
+            st.success(" Aucune évacuation nécessaire")
     
     # TAB 4: ANALYSE
     with tabs[3]:
-        st.subheader("📈 Analyse")
+        st.subheader(" Analyse")
         
         display_df = df[[
             'region_name', 'resilience_index', 'category',
@@ -607,7 +583,7 @@ def render_rescue_interface(df, cyclone_severity, base_df):
         
         display_df.columns = [
             'Région', 'Résilience', 'Catégorie',
-            '🚨 Danger', '✅ Sécurité',
+            ' Danger', ' Sécurité',
             'Exposition', 'Vulnérabilité', 'Adaptation'
         ]
         
@@ -615,7 +591,7 @@ def render_rescue_interface(df, cyclone_severity, base_df):
         
         csv = display_df.to_csv(index=False)
         st.download_button(
-            "📥 Exporter CSV",
+            " Exporter CSV",
             data=csv,
             file_name=f"rapport_cyclone_{cyclone_severity}.csv",
             mime="text/csv"
@@ -623,12 +599,12 @@ def render_rescue_interface(df, cyclone_severity, base_df):
     
     # TAB 5: AVANT/APRÈS
     with tabs[4]:
-        st.subheader("🔄 Comparaison Avant/Après")
+        st.subheader(" Comparaison Avant/Après")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("### ✅ AVANT")
+            st.markdown("###  AVANT")
             before_stats = generate_summary_stats(base_df)
             st.metric("Résilience", f"{before_stats['avg_resilience']:.1f}")
             st.metric("Sûres", before_stats['safe_regions'])
@@ -640,7 +616,7 @@ def render_rescue_interface(df, cyclone_severity, base_df):
             st_folium(map_before, width=350, height=300, key="map_before")
         
         with col2:
-            st.markdown(f"### 🌀 APRÈS ({cyclone_severity})")
+            st.markdown(f"###  APRÈS ({cyclone_severity})")
             after_stats = generate_summary_stats(df)
             st.metric("Résilience", f"{after_stats['avg_resilience']:.1f}", 
                      delta=f"{after_stats['avg_resilience'] - before_stats['avg_resilience']:.1f}")
@@ -656,13 +632,13 @@ def render_rescue_interface(df, cyclone_severity, base_df):
     
     # TAB 6: RAPPORT IA
     with tabs[5]:
-        st.subheader("🤖 Rapport IA")
+        st.subheader(" Rapport IA")
 
         try:
             advisor = ReportAI()
 
             regions = ["Île Maurice (toutes régions)"] + list(advisor.resilience_data["region_name"].unique())
-            selected = st.selectbox("📍 Région:", regions)
+            selected = st.selectbox(" Région:", regions)
 
             region_id = None
             if selected != "Île Maurice (toutes régions)":
@@ -670,18 +646,18 @@ def render_rescue_interface(df, cyclone_severity, base_df):
                     advisor.resilience_data["region_name"] == selected
                 ]["region_id"].values[0]
 
-            if st.button("🚀 Générer Rapport IA"):
-                with st.spinner("⏳ Analyse IA en cours..."):
+            if st.button(" Générer Rapport IA"):
+                with st.spinner(" Analyse IA en cours..."):
                     try:
                         advice = advisor.generate_security_advice(region_id)
                         
-                        st.success("✅ Rapport généré!")
+                        st.success(" Rapport généré!")
                         
                         # BOUTON EXPORT PDF
                         pdf_buffer = generate_pdf_report(advice, selected, cyclone_severity)
                         if pdf_buffer:
                             st.download_button(
-                                label="📥 Télécharger Rapport PDF",
+                                label=" Télécharger Rapport PDF",
                                 data=pdf_buffer,
                                 file_name=f"rapport_islandguard_{selected}_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf",
                                 mime="application/pdf",
@@ -691,7 +667,7 @@ def render_rescue_interface(df, cyclone_severity, base_df):
                         st.divider()
                         
                         # AFFICHAGE
-                        st.subheader("📋 Résumé")
+                        st.subheader(" Résumé")
                         st.info(advice.get("executive_summary", "N/A"))
                         
                         col1, col2 = st.columns(2)
@@ -701,19 +677,19 @@ def render_rescue_interface(df, cyclone_severity, base_df):
                         with col2:
                             st.metric("Délai", threat.get("timeframe", "N/A"))
                         
-                        st.subheader("🚨 Priorités Évacuation")
+                        st.subheader(" Priorités Évacuation")
                         for i, region in enumerate(advice.get("evacuation_priorities", [])[:5], 1):
                             st.write(f"{i}. {region}")
                         
-                        st.subheader("🔴 Recommandations")
+                        st.subheader(" Recommandations")
                         for rec in advice.get("critical_recommendations", []):
                             st.error(rec)
                             
                     except Exception as e:
-                        st.error(f"❌ Erreur: {e}")
+                        st.error(f" Erreur: {e}")
         
         except Exception as e:
-            st.error(f"❌ Erreur ReportAI: {e}")
+            st.error(f" Erreur ReportAI: {e}")
 
 
 if __name__ == "__main__":

@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Conseiller de sécurité IA avec géolocalisation
-"""
-
 import os
 import json
 from pathlib import Path
@@ -61,9 +57,8 @@ class SecurityAdvisor:
         """
         Génère des conseils de sécurité pour une localisation GPS en temps réel.
         
-        🔧 FIX: Prend en compte cyclone_severity pour conseils dynamiques
         """
-        # 🔧 FIX: Appliquer simulation cyclone AVANT génération conseils
+        # Appliquer simulation cyclone avant génération conseils
         if cyclone_severity > 0:
             df = pd.DataFrame(self.resilience_data)
             df = calculate_resilience_batch(df)
@@ -180,25 +175,25 @@ class SecurityAdvisor:
         
         resilience = region_data["resilience_index"]
         
-        # 🔧 FIX: Logique de risque CORRIGÉE
+
         if cyclone_severity > 80:
-            risk_level = "🔴 CRITIQUE - Évacuation IMMÉDIATE requise"
-            immediate_action = f"🚨 Évacuez IMMÉDIATEMENT vers une zone sûre. Cyclone extrême détecté (intensité {cyclone_severity}/100)."
+            risk_level = "CRITIQUE - Évacuation IMMÉDIATE requise"
+            immediate_action = f"Évacuez IMMÉDIATEMENT vers une zone sûre. Cyclone extrême détecté (intensité {cyclone_severity}/100)."
         elif cyclone_severity > 50:
-            risk_level = "🔴 TRÈS ÉLEVÉ - Évacuation recommandée"
-            immediate_action = f"⚠️ Préparez-vous à évacuer. Cyclone sévère en approche (intensité {cyclone_severity}/100)."
+            risk_level = "TRÈS ÉLEVÉ - Évacuation recommandée"
+            immediate_action = f"Préparez-vous à évacuer. Cyclone sévère en approche (intensité {cyclone_severity}/100)."
         elif cyclone_severity > 20:
-            risk_level = "🟠 ÉLEVÉ - Restez en alerte"
-            immediate_action = f"⚠️ Restez à l'intérieur et suivez les consignes. Cyclone modéré (intensité {cyclone_severity}/100)."
+            risk_level = "ÉLEVÉ - Restez en alerte"
+            immediate_action = f"Restez à l'intérieur et suivez les consignes. Cyclone modéré (intensité {cyclone_severity}/100)."
         elif resilience < 40:
-            risk_level = "🟠 MODÉRÉ - Zone vulnérable"
-            immediate_action = "🏠 Restez vigilant. Votre zone a une faible résilience. Préparez un kit d'urgence."
+            risk_level = "MODÉRÉ - Zone vulnérable"
+            immediate_action = "Restez vigilant. Votre zone a une faible résilience. Préparez un kit d'urgence."
         elif resilience < 60:
-            risk_level = "🟡 FAIBLE - Restez informé"
-            immediate_action = "📻 Suivez les actualités et restez informé des évolutions météo."
+            risk_level = "FAIBLE - Restez informé"
+            immediate_action = "Suivez les actualités et restez informé des évolutions météo."
         else:
-            risk_level = "🟢 BASSE - Vous êtes en zone sûre"
-            immediate_action = "✅ Vous êtes dans une zone à haute résilience. Restez informé mais pas d'évacuation nécessaire."
+            risk_level = "BASSE - Vous êtes en zone sûre"
+            immediate_action = "Vous êtes dans une zone à haute résilience. Restez informé mais pas d'évacuation nécessaire."
         
         # Formater zones sûres
         safe_zones_text = "\n".join([
@@ -212,7 +207,7 @@ class SecurityAdvisor:
             for z in risk_zones
         ]) if risk_zones else "Aucune zone à risque critique"
         
-        cyclone_info = f"\n🌀 CYCLONE EN COURS - Intensité: {cyclone_severity}/100" if cyclone_severity > 0 else ""
+        cyclone_info = f"\nCYCLONE EN COURS - Intensité: {cyclone_severity}/100" if cyclone_severity > 0 else ""
         
         prompt = f"""Tu es un expert en sécurité civile. Génère des conseils ADAPTÉS à la situation réelle.
 
@@ -266,7 +261,7 @@ Génère un JSON avec des conseils COHÉRENTS avec le niveau de risque:
   "at_risk_zones": ["Zone 1"]
 }}
 
-RAPPEL: Si la zone est SÛRE (résilience > 60 et cyclone faible), NE PAS recommander d'évacuation!
+RAPPEL: Si la zone est SÛRE (résilience > 60 et cyclone faible), ne pas recommander d'évacuation!
 JSON uniquement, pas de markdown."""
 
         try:
@@ -281,7 +276,7 @@ JSON uniquement, pas de markdown."""
             
             advice = json.loads(response_text)
             
-            # 🔧 FIX: Force l'action immédiate correcte
+          
             advice['immediate_action'] = immediate_action
             
             return advice
@@ -299,9 +294,9 @@ JSON uniquement, pas de markdown."""
         if immediate_action is None:
             resilience = region_data["resilience_index"]
             if resilience > 60:
-                immediate_action = "✅ Vous êtes en zone sûre. Restez informé mais pas d'évacuation nécessaire."
+                immediate_action = "Vous êtes en zone sûre. Restez informé mais pas d'évacuation nécessaire."
             else:
-                immediate_action = "🚨 Préparez-vous à évacuer si la situation se dégrade."
+                immediate_action = "Préparez-vous à évacuer si la situation se dégrade."
         
         safe_zones_advice = []
         for z in safe_zones[:3]:
@@ -318,10 +313,10 @@ JSON uniquement, pas de markdown."""
             "risk_level": risk_level,
             "immediate_action": immediate_action,
             "protection_tips": [
-                "🏠 Restez à l'intérieur si conditions dangereuses",
-                "📱 Gardez votre téléphone chargé",
-                "👨‍👩‍👧 Restez en contact avec votre famille",
-                "📻 Écoutez les bulletins d'information"
+                "Restez à l'intérieur si conditions dangereuses",
+                "Gardez votre téléphone chargé",
+                "Restez en contact avec votre famille",
+                "Écoutez les bulletins d'information"
             ],
             "safe_zones": safe_zones_advice if safe_zones_advice else [{
                 "name": "Centre d'évacuation le plus proche",
@@ -348,13 +343,13 @@ JSON uniquement, pas de markdown."""
         """Conseils génériques"""
         return {
             "location": "Maurice - Localisation inconnue",
-            "risk_level": "🔴 INCONNU - Prenez les précautions maximales",
-            "immediate_action": "🚨 Contactez les autorités et suivez leurs instructions.",
+            "risk_level": "INCONNU - Prenez les précautions maximales",
+            "immediate_action": "Contactez les autorités et suivez leurs instructions.",
             "protection_tips": [
-                "🏠 Cherchez un abri en hauteur",
-                "📱 Appelez les services d'urgence",
-                "👨‍👩‍👧 Restez en famille",
-                "🚗 Évitez les déplacements inutiles"
+                "Cherchez un abri en hauteur",
+                "Appelez les services d'urgence",
+                "Restez en famille",
+                "Évitez les déplacements inutiles"
             ],
             "safe_zones": [{
                 "name": "Zone de refuge",

@@ -1,9 +1,3 @@
-"""
-Module de génération de cartes interactives
-🎯 DÉVELOPPÉ PAR: DEV 3
-🔧 FIX: Opacité réduite + Légende visible + 4 couleurs
-"""
-
 import folium
 import geopandas as gpd
 from utils.config import (
@@ -22,7 +16,7 @@ def create_base_map():
         control_scale=True
     )
     
-    print("✅ DEV 3: Carte de base créée")
+    print("DEV 3: Carte de base créée")
     return base_map
 
 
@@ -47,7 +41,7 @@ def get_color_for_category(category):
 def add_resilience_layer(map_obj, gdf):
     """
     Ajoute la couche de résilience colorée sur la carte.
-    🔧 FIX: Opacité réduite à 0.45 pour lisibilité
+
     """
     if not isinstance(gdf, gpd.GeoDataFrame):
         gdf = gpd.GeoDataFrame(gdf, geometry='geometry')
@@ -56,10 +50,10 @@ def add_resilience_layer(map_obj, gdf):
     missing = [col for col in required if col not in gdf.columns]
     
     if missing:
-        raise ValueError(f"❌ DEV 3: Colonnes manquantes: {missing}")
+        raise ValueError(f"DEV 3: Colonnes manquantes: {missing}")
     
     # Debug couleurs
-    print("\n🎨 COULEURS PAR RÉGION:")
+    print("\nCOULEURS PAR RÉGION:")
     for _, row in gdf.iterrows():
         cat = row['category']
         color = get_color_for_category(cat)
@@ -68,7 +62,7 @@ def add_resilience_layer(map_obj, gdf):
     # Convertir en GeoJSON
     geojson_data = gdf.__geo_interface__
     
-    # Style fonction avec OPACITÉ RÉDUITE
+    # Style fonction
     def style_function(feature):
         props = feature['properties']
         category = props.get('category', 'medium')
@@ -78,7 +72,7 @@ def add_resilience_layer(map_obj, gdf):
             'fillColor': color,
             'color': 'black',
             'weight': 1.5,
-            'fillOpacity': 0.45,    # ← Opacité réduite
+            'fillOpacity': 0.45,    
             'opacity': 1
         }
     
@@ -91,7 +85,7 @@ def add_resilience_layer(map_obj, gdf):
             'fillColor': color,
             'color': '#ffffff',
             'weight': 3,
-            'fillOpacity': 0.7,     # ← Opacité réduite au survol
+            'fillOpacity': 0.7,     
             'opacity': 1
         }
     
@@ -125,7 +119,7 @@ def add_resilience_layer(map_obj, gdf):
         )
     ).add_to(map_obj)
     
-    print(f"✅ DEV 3: Couche résilience ajoutée ({len(gdf)} régions)")
+    print(f"DEV 3: Couche résilience ajoutée ({len(gdf)} régions)")
     
     return map_obj
 
@@ -162,7 +156,7 @@ def add_hazard_layer(map_obj, hazard_gdf):
             )
         ).add_to(map_obj)
     
-    print(f"✅ DEV 3: {len(hazard_gdf)} zones de danger ajoutées")
+    print(f"DEV 3: {len(hazard_gdf)} zones de danger ajoutées")
     return map_obj
 
 
@@ -207,7 +201,7 @@ def add_legend(map_obj):
         border-bottom: 2px solid #3498db; 
         padding-bottom: 6px;
     '>
-      📊 Résilience
+        Résilience
     </div>
     
     <div style='margin: 6px 0; display: flex; align-items: center;'>
@@ -252,6 +246,6 @@ def add_legend(map_obj):
     
     map_obj.get_root().add_child(macro)
     
-    print("✅ DEV 3: Légende à droite ajoutée")
+    print("DEV 3: Légende à droite ajoutée")
     
     return map_obj

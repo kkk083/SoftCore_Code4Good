@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 import numpy as np
 from utils.config import (
@@ -29,7 +27,7 @@ def calculate_resilience_batch(df):
     missing = [col for col in required if col not in df.columns]
     
     if missing:
-        raise ValueError(f"❌ DEV 2: Colonnes manquantes: {missing}")
+        raise ValueError(f"DEV 2: Colonnes manquantes: {missing}")
     
     # Calcul vectorisé
     composite_risk = (
@@ -44,7 +42,7 @@ def calculate_resilience_batch(df):
     # Ajouter catégorie (4 niveaux)
     df['category'] = df['resilience_index'].apply(get_resilience_category)
     
-    print(f"✅ DEV 2: Résilience calculée pour {len(df)} régions")
+    print(f"DEV 2: Résilience calculée pour {len(df)} régions")
     
     return df
 
@@ -53,8 +51,6 @@ def get_resilience_category(score):
     """
     Catégorise le score en 4 niveaux
     
-    Returns:
-        str: 'critical', 'low', 'medium', 'high'
     """
     if score < 30:
         return 'critical'    # Rouge
@@ -81,7 +77,7 @@ def simulate_cyclone_impact(df, cyclone_severity):
     # Recalculer résilience
     df_simulated = calculate_resilience_batch(df_simulated)
     
-    print(f"✅ DEV 2: Cyclone severity={cyclone_severity} simulé")
+    print(f"DEV 2: Cyclone severity={cyclone_severity} simulé")
     
     return df_simulated
 

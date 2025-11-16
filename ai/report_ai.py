@@ -340,12 +340,12 @@ DIRECTIVES:
                 "PRIORITÉ 5: Test communications redondantes (radio, satellite)"
             ],
             "preparedness_checklist": [
-                "✅ Inventaire matériel d'urgence (stocks, véhicules, équipements)",
-                "✅ Vérification disponibilité personnel (rappel effectifs, stand-by)",
-                "⚠️ Sécurisation axes routiers prioritaires et itinéraires de repli",
-                "⚠️ Activation centres de coordination opérationnelle (CCO)",
-                "⚠️ Test procédures d'alerte de masse (SMS, sirènes, médias)",
-                "⚠️ Pré-accord avec hôpitaux pour plans blancs (afflux massif)",
-                "⚠️ Coordination avec autorités locales (maires, préfets)"
+                "Inventaire matériel d'urgence (stocks, véhicules, équipements)",
+                "Vérification disponibilité personnel (rappel effectifs, stand-by)",
+                "Sécurisation axes routiers prioritaires et itinéraires de repli",
+                "Activation centres de coordination opérationnelle (CCO)",
+                "Test procédures d'alerte de masse (SMS, sirènes, médias)",
+                "Pré-accord avec hôpitaux pour plans blancs (afflux massif)",
+                "Coordination avec autorités locales (maires, préfets)"
             ]
         }
