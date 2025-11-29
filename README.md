@@ -2,10 +2,6 @@
 
 **Système de surveillance climatique pour l'île Maurice avec IA**
 
-> Code4Good Hackathon 2025 | Powered by Google Gemini AI ⚡
-
----
-
 ## Quick Start
 ```bash
 # 1. Cloner
@@ -28,30 +24,30 @@ streamlit run app.py
 
 ## Fonctionnalités
 
-### 👤 Mode Citoyen
-- 🗺️ Carte de résilience temps réel
-- 📍 Conseils IA géolocalisés (Gemini)
-- 🚨 Alertes "En danger" / "En sécurité"
-- 🌀 Simulation cyclone
+### Mode Citoyen
+- Carte de résilience temps réel
+- Conseils IA géolocalisés (Gemini)
+- Alertes "En danger" / "En sécurité"
+- Simulation cyclone
 
-### 🚨 Mode Secours
-- 📊 Dashboard alertes citoyennes
-- 🚁 Liste d'évacuation priorisée
-- 📄 Rapports IA tactiques (export PDF)
-- 🔄 Analyse avant/après cyclone
+### Mode Secours
+- Dashboard alertes citoyennes
+- Liste d'évacuation priorisée
+- Rapports IA tactiques (export PDF)
+- Analyse avant/après cyclone
 
 ---
 
 ## Structure Fichiers
 ```
 islandguard/
-├── app.py                        # 🎯 App principale
+├── app.py                        # App principale
 ├── data/
-│   ├── mauritius_regions.geojson # 🗺️ Géométries (SANS region_id)
-│   └── resilience_scores.csv     # 📊 Données E, V, A
-├── src/                          # 📦 Modules métier
-├── ai/                           # 🤖 IA Gemini
-└── .env                          # 🔑 API Key (à créer)
+│   ├── mauritius_regions.geojson # Géométries (SANS region_id)
+│   └── resilience_scores.csv     # Données E, V, A
+├── src/                          # Modules métier
+├── ai/                           # IA Gemini
+└── .env                          # API Key (à créer)
 ```
 
 ---
@@ -189,7 +185,7 @@ echo "GOOGLE_API_KEY=AIzaSy..." > .env
 
 ---
 
-## 🚀 Déploiement Streamlit Cloud
+## Déploiement Streamlit Cloud
 
 1. Push sur GitHub
 2. [share.streamlit.io](https://share.streamlit.io) → Deploy
@@ -221,18 +217,10 @@ merged_gdf[1] prend données de resilience_df[1]
 
 ---
 
-## 👥 Équipe
+## Équipe
 
 ** KIADY ** : Données | ** JUNIOR ** : Calculs | ** MATHIEU ** : Cartes | ** BRYAN ** : Alertes
 
----
-
-**Made with ❤️ for Mauritius** 🇲🇺
-
-*Powered by Google Gemini AI *
-
----
-
-## 📞 Support
-
-Questions ? → Ouvre une issue sur GitHub
+<p align="center">
+  <img src="image/softcore_team.png" />
+</p>
