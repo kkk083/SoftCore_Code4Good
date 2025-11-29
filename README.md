@@ -222,5 +222,5 @@ merged_gdf[1] prend données de resilience_df[1]
 ** KIADY ** : Données | ** JUNIOR ** : Calculs | ** MATHIEU ** : Cartes | ** BRYAN ** : Alertes
 
 <p align="center">
-  <img src="image/softcore_team.png" />
+  <img src="image/softcore_team.jpg" />
 </p>
