@@ -219,10 +219,10 @@ merged_gdf[1] prend données de resilience_df[1]
 
 ## Équipe
 
-- **KIADY** 
-- **JUNIOR** 
-- **MATHIEU** 
-- **BRYAN** 
+- **KIADY RABENARIVO** 
+- **JUNIOR YISSIBI** 
+- **MATHIEU BABA** 
+- **BRYAN RASOLONDRAIBE** 
 
 <p align="center">
   <img src="image/softcore_team.jpg" />
