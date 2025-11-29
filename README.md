@@ -219,7 +219,10 @@ merged_gdf[1] prend données de resilience_df[1]
 
 ## Équipe
 
-** KIADY ** : Données | ** JUNIOR ** : Calculs | ** MATHIEU ** : Cartes | ** BRYAN ** : Alertes
+- **KIADY** 
+- **JUNIOR** 
+- **MATHIEU** 
+- **BRYAN** 
 
 <p align="center">
   <img src="image/softcore_team.jpg" />
