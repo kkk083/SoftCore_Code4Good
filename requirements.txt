@@ -10,7 +10,7 @@ click==8.3.1
 colorama==0.4.6
 folium==0.20.0
 fpdf==1.7.2
-geopandas==1.1.1
+geopandas==1.1.2
 gitdb==4.0.12
 GitPython==3.1.45
 google-ai-generativelanguage==0.6.15
@@ -35,9 +35,9 @@ packaging==25.0
 pandas==2.3.3
 pillow==12.0.0
 proto-plus==1.26.1
-protobuf==5.29.5
+protobuf==5.29.6
 pyarrow==21.0.0
-pyasn1==0.6.1
+pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pydantic==2.12.4
 pydantic_core==2.41.5
@@ -67,6 +67,6 @@ typing-inspection==0.4.2
 typing_extensions==4.15.0
 tzdata==2025.2
 uritemplate==4.2.0
-urllib3==2.5.0
+urllib3==2.6.3
 watchdog==6.0.0
 xyzservices==2025.10.0
